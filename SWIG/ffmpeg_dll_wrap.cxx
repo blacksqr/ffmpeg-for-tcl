@@ -2973,6 +2973,60 @@ fail:
 }
 
 
+SWIGINTERN int
+_wrap_Void2Photo(ClientData clientData SWIGUNUSED, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
+  void *arg1 = (void *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int res1 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int result;
+  
+  if (SWIG_GetArgs(interp, objc, objv,"ooooo:Void2Photo imgVector photoName width height numChans ",(void *)0,(void *)0,(void *)0,(void *)0,(void *)0) == TCL_ERROR) SWIG_fail;
+  res1 = SWIG_ConvertPtr(objv[1],SWIG_as_voidptrptr(&arg1), 0, 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Void2Photo" "', argument " "1"" of type '" "void *""'"); 
+  }
+  res2 = SWIG_AsCharPtrAndSize(objv[2], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Void2Photo" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = reinterpret_cast< char * >(buf2);
+  ecode3 = SWIG_AsVal_int SWIG_TCL_CALL_ARGS_2(objv[3], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Void2Photo" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_int SWIG_TCL_CALL_ARGS_2(objv[4], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Void2Photo" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = static_cast< int >(val4);
+  ecode5 = SWIG_AsVal_int SWIG_TCL_CALL_ARGS_2(objv[5], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Void2Photo" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = static_cast< int >(val5);
+  result = (int)Void2Photo(arg1,(char const *)arg2,arg3,arg4,arg5);
+  Tcl_SetObjResult(interp,SWIG_From_int(static_cast< int >(result)));
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  return TCL_OK;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  return TCL_ERROR;
+}
+
+
 
 static swig_command_info swig_commands[] = {
     { SWIG_prefix "ffmpeg_init", (swig_wrapper_func) _wrap_ffmpeg_init, NULL},
@@ -3023,6 +3077,7 @@ static swig_command_info swig_commands[] = {
     { SWIG_prefix "FFMPEG_set_volume_of_canal", (swig_wrapper_func) _wrap_FFMPEG_set_volume_of_canal, NULL},
     { SWIG_prefix "FFMPEG_Get_a_new_FSOUND_STREAM", (swig_wrapper_func) _wrap_FFMPEG_Get_a_new_FSOUND_STREAM, NULL},
     { SWIG_prefix "FFMPEG_close_FSOUND_STREAM", (swig_wrapper_func) _wrap_FFMPEG_close_FSOUND_STREAM, NULL},
+    { SWIG_prefix "Void2Photo", (swig_wrapper_func) _wrap_Void2Photo, NULL},
     {0, 0, 0}
 };
 
@@ -3371,8 +3426,6 @@ SWIGEXPORT int SWIG_init(Tcl_Interp *interp) {
   Tcl_Eval(interp, "namespace eval " SWIG_namespace " { }");
 #endif
   
-  FFMPEG_Tcl_Interp = interp;
-
   SWIG_InitializeModule((void *) interp);
   SWIG_PropagateClientData();
   
